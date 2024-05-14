@@ -9,10 +9,10 @@ import LogoOne from "../assets/img/logoone.png";
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Cart', href: '#', current: false },
-  { name: 'Help', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Cart', href: '/cart', current: false },
+  { name: 'Help', href: '/help', current: false },
+  { name: 'Contact', href: '/contact', current: false },
 ]
 
 function classNames(...classes) {
@@ -48,27 +48,28 @@ export default function Navbar() {
                   /></a>
                  
                 </div>
+
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="mx-80 flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-300 text-black' : 'text-black hover:bg-orange-300 hover:text-orange',
-                          'rounded-md px-3 py-2 font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
+  <div className="mx-80 flex space-x-4">
+    {navigation.map((item) => (
+      <Link
+        key={item.name}
+        to={item.href}
+        className={classNames(
+          item.current ? 'bg-gray-300 text-black' : 'text-black hover:bg-orange-300 hover:text-orange',
+          'rounded-md px-3 py-2 font-medium'
+        )}
+        aria-current={item.current ? 'page' : undefined}
+      >
+        {item.name}
+      </Link>
+    ))}
+  </div>
+</div>     
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
              
-              <Link to ='/checkout'><button
+              <Link to ='/cart'><button
   type="button"
   className="relative rounded-full bg-orange-600 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 >

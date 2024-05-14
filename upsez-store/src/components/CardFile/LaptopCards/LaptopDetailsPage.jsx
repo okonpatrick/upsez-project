@@ -18,7 +18,6 @@ export const LaptopDetailsPage = () => {
   const {addToCart} = useCart();
   const [isAddedToCart, setIsAddedToCart] = useState(false); // New state for message
 
-
 const incrementCount = ()=> {
   setCartNumber(cartInitialNumber + 1)
 }
@@ -33,13 +32,12 @@ const decrementCount = () => {
   // };  
   
   const handleAddToCart = () => {
-    const quantity = parseFloat(cartInitialNumber);
+    const quantity = cartInitialNumber;
     //addToCart({ ...selectedLaptop, quantity });
     addToCart(selectedLaptop, quantity);
     setIsAddedToCart(true); // Set message state to true
     setTimeout(() => setIsAddedToCart(false), 5000);
   };
-  
 
   useEffect(() => {
     const fetchLaptopDetails = async () => {

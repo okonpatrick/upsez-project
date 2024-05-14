@@ -24,7 +24,9 @@ import { useLaptopDetails } from "./context/LaptopDetailsContext";
 import CheckOut from "./components/CheckOutPage";
 import { CartProvider } from "./context/CartProvider";
 import { LaptopDetailsPage } from "./components/CardFile/LaptopCards/LaptopDetailsPage";
-
+import NotFound from "./components/404Error";
+import HelpPage from "./components/HelpPage";
+import Contact from "./components/Contact";
 
 
 function App() {
@@ -96,7 +98,12 @@ function App() {
      
             }
           />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/cart" element={<CheckOut />} />
+          <Route path="/contact" element={<Contact />} /> 
+          <Route path="/help" element={<HelpPage />} /> 
+
+          <Route path="*" element={<NotFound />} /> {/* Catch-all for unmatched routes */}
+
         </Routes>
      
    
