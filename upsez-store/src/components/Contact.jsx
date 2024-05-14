@@ -35,7 +35,8 @@ const Contact = () => {
         setEmail("");
         setMessage("");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
       });
   };
 
@@ -48,7 +49,7 @@ const Contact = () => {
           </h2>
           <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
             Got a technical issue? Feel free to get in touch. Thank you for
-            visiting, and we look forward to the opportunity to work together!.
+            visiting, and we look forward to the opportunity to serve you better and also work together!.
           </p>
           <form action="#" className="space-y-8" onSubmit={handleSubmit}>
             <div>
@@ -86,7 +87,7 @@ const Contact = () => {
             </div>
             <div className="sm:col-span-2">
               {isEmailSent && (
-                <div className="success-message">Email sent successfully!</div>
+                <div className="text-green-500 text-xl">Email sent successfully!</div>
               )}
               <label
                 htmlFor="message"
