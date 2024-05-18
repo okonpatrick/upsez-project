@@ -4,7 +4,7 @@
         "id": 1,
         "brand": "Dell",
         "itemName": "Latitude X",
-        "imageSrc": "../../src/assets/img/laptops.jpg",
+        "imageSrc": "../../../public/static/laptops.jpg",
         "price": 200000,
         "condition": "New",
         "capacity": "512GB",
