@@ -3,7 +3,7 @@
   {
     "id": 1,
     "itemName": "Laptops",
-    "imageSrc": "./src/assets/img/laptops.jpg",
+    "imageSrc": "../../../public/static/laptops.jpg",
     "price": 200000,
     "condition": "New",
     "brand": "Dell",

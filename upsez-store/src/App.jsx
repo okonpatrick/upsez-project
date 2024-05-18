@@ -27,8 +27,6 @@ import { LaptopDetailsPage } from "./components/CardFile/LaptopCards/LaptopDetai
 import NotFound from "./components/404Error";
 import HelpPage from "./components/HelpPage";
 import Contact from "./components/Contact";
-import GeminiLeafClassifier from "./components/genAi/genAiMenu";
-
 
 function App() {
   return (
@@ -40,7 +38,6 @@ function App() {
         {" "}
         {/* Wrap your App component with LaptopDetailsProvider */}
         <Routes>
-          <Route path="/gemini" element={<GeminiLeafClassifier/>}/>
           <Route
             path="/"
             element={
