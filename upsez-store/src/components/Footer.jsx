@@ -14,11 +14,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-center">
           <MailchimpForm />
-
           <div className="sm:w-1/2 text-center ">
-            <div className="social-icon">
-             
-            
+            <div className="social-icon">   
             </div>
             <p className="text-white text-sm mt-4 text-black dark:text-black">
               © {year} <span className="font-semibold text-black">Online Shopping Store</span> by{" "}
