@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import menuData from '../JsonFiles/JsonCardData.json';
 import MenuCard from "../MenuCard";
 import { useNavigate } from 'react-router-dom';
-
 export default function MenuCardContainer() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate(); // Get the navigate function from useNavigate()
