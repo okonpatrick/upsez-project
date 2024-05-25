@@ -19,7 +19,7 @@ export default function MenuCardContainer() {
       navigate("/waitfilter/phones&tablets");
     }
     else if (id === 3) {
-      navigate("/waitfilter/phones&tablets");
+      navigate("/waitfilter/phone-accessories");
     }
     else if (id === 4) {
       navigate("/waitfilter/audio&music");

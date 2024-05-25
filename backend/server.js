@@ -36,6 +36,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const os = require("os");
+const path = require("path");
+
 
 const app = express(); // Declare app here
 const port = 3001; // Choose an available port
@@ -43,6 +46,14 @@ const port = 3001; // Choose an available port
 const roboflowUploadUrl = 'https://detect.roboflow.com/plantdoc-pwu4j/1';
 
 app.use(bodyParser.json()); // Parse incoming JSON data
+
+console.log("Hello World!")
+console.log(os.type());
+console.log(os.version());
+console.log(os.homedir())
+console.log(__dirname);
+console.log(__filename);
+console.log(path.parse(__filename));
 
 app.post('/upload', async (req, res) => {
   try {

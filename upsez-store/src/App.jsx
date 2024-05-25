@@ -20,6 +20,7 @@ import LaptopContainer from "./components/CardFile/LaptopCards/LaptopContainer";
 import LaptopDetails from "./components/CardFile/LaptopCards/LaptopDetails";
 //import {LaptopDetailsPage} from "./components/CardFile/LaptopCards/LaptopDetailsPage";
 import { LaptopDetailsProvider } from "./context/LaptopDetailsContext";
+import { PhonesAndTabletsProvider } from "./context/PhonesAndTabletsContext";
 import { useLaptopDetails } from "./context/LaptopDetailsContext";
 import CheckOut from "./components/CheckOutPage";
 import { CartProvider } from "./context/CartProvider";
@@ -27,11 +28,16 @@ import { LaptopDetailsPage } from "./components/CardFile/LaptopCards/LaptopDetai
 import NotFound from "./components/404Error";
 import HelpPage from "./components/HelpPage";
 import Contact from "./components/Contact";
+import PhonesAndTabletsDetails from "./components/CardFile/PhonesAndTabletsCard/PhonesAndTabletsCardDetails";
+import { PhonesAndTabletsDetailsPage } from "./components/CardFile/PhonesAndTabletsCard/PhonesAndTabletsCardDetailsPage";
+import { PhoneAccessoriesDetailsProvider } from "./context/PhoneAccessoriesContext";
 
 function App() {
   return (
    <CartProvider>
             <LaptopDetailsProvider>
+              <PhonesAndTabletsProvider>
+                <PhoneAccessoriesDetailsProvider>
 
     <Router>
       
@@ -92,9 +98,14 @@ function App() {
           <Route
             path="/:brand/LaptopDetail/:id"
             element={
-         
                      <LaptopDetailsPage />
-     
+            }
+          />
+           <Route
+            path="/:brand/PhonesAndTabletsDetail/:id"
+            element={
+              <PhonesAndTabletsDetailsPage/>
+              
             }
           />
           <Route path="/cart" element={<CheckOut />} />
@@ -104,9 +115,10 @@ function App() {
           <Route path="*" element={<NotFound />} /> {/* Catch-all for unmatched routes */}
 
         </Routes>
-     
-   
     </Router>
+
+    </PhoneAccessoriesDetailsProvider>
+    </PhonesAndTabletsProvider>
     </LaptopDetailsProvider>
     </CartProvider>
   );
