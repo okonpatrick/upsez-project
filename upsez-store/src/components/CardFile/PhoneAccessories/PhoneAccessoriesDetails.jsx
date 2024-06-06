@@ -6,7 +6,7 @@ const PhoneAccessoriesDetails = ({ PhoneAccessories }) => {
   const navigate = useNavigate();
   const { setSelectedPhoneAccessories } = usePhoneAccessoriesDetails();
 
-  const handleLaptopClick = (laptop) => {
+  const handleLaptopClick = (PhoneAccessories) => {
     setSelectedPhoneAccessories(PhoneAccessories);
     navigate(`/${PhoneAccessories.brand}/PhoneAccessoriesDetail/${PhoneAccessories.id}`);
   };

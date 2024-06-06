@@ -20,9 +20,7 @@ const CheckOut = () => {
     // Create email body with cart details
     var emailBody = `Dear Seller,\n\nI would like to purchase the following items from your store:\n\n`;
   
-    // Loop through each item in the cart
     for (const item of cart) {
-      // Add item details to the email body
       emailBody += `- ${item.itemName} (Quantity: ${item.quantity})\n`;
     }
   

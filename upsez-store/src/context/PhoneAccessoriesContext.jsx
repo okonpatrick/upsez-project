@@ -1,4 +1,4 @@
-//LaptopDetailsContext.js
+//PhoneAccessoriesDetailsContext.js
 import { createContext, useContext, useState } from 'react';
 
 const PhoneAccessoriesDetailsContext = createContext();

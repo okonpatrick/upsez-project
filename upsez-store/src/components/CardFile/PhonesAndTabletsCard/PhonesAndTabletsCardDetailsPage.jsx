@@ -1,7 +1,7 @@
 // LaptopDetailsPage.jsx
 import { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { useLaptopDetails } from '../../../context/LaptopDetailsContext';
+import { usePhonesAndTabletsDetails } from '../../../context/PhonesAndTabletsContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import SearchForm from '../../Forms/SearchBar';
@@ -14,7 +14,7 @@ export const PhonesAndTabletsDetailsPage = () => {
   const [cartInitialNumber, setCartNumber] = useState(0);
   const { id, brand } = useParams(); // Get the parameters from the URL
   const [loading, setLoading] = useState(true);
-  const { selectedPhonesAndTablets, setSelectedPhonesAndTablets } = useLaptopDetails();
+  const { selectedPhonesAndTablets, setSelectedPhonesAndTablets } = usePhonesAndTabletsDetails();
   const {addToCart} = useCart();
   const [isAddedToCart, setIsAddedToCart] = useState(false); // New state for message
 
@@ -73,26 +73,7 @@ const decrementCount = () => {
 <div className='lg:flex  m-auto lg:ml-40'>
 <div className=' border-gray-300  flex lg:m-2 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-1  sm:m-20 sm:text-sm lg:ml-2 sm:ml-2 mb-0'  style={{ width: '400px', height: '380px'}}>
 <Carousel className="rounded-xl text-center lg:w-96" >
-    <img
-      src={selectedPhonesAndTablets.imageSrc} 
-      alt={selectedPhonesAndTablets.itemName}      
-    />
-    <img
-      src={setSelectedPhonesAndTablets.imageSrc}
-      alt={setSelectedPhonesAndTablets.itemName}    
-    />
-    <img
-      src={setSelectedPhonesAndTablets.imageSrc}
-      alt={setSelectedPhonesAndTablets.itemName}
-    />
-     <img
-      src={setSelectedPhonesAndTablets.imageSrc}
-      alt={setSelectedPhonesAndTablets.itemName}  
-    />
-     <img
-      src={setSelectedPhonesAndTablets.imageSrc}
-      alt={setSelectedPhonesAndTablets.itemName}  
-    />
+   
     
   </Carousel>
   <div className="text-center font-bold mb-2">

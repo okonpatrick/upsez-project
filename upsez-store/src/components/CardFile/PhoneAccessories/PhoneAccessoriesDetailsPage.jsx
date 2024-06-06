@@ -1,16 +1,18 @@
 // LaptopDetailsPage.jsx
 import { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { useLaptopDetails } from '../../../context/LaptopDetailsContext';
+//import { useLaptopDetails } from '../../../context/LaptopDetailsContext';
+import { usePhoneAccessoriesDetails } from '../../../context/PhoneAccessoriesContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import SearchForm from '../../Forms/SearchBar';
 import Navbar from "../../LocalNavbar";
 import { useCart} from '../../../context/CartProvider';
-import laptopData from "../../JsonFiles/LaptopCard.json";
-import "../../JsonFiles/LaptopCard.json";
+import PhoneAccessoriesData from "../../JsonFiles/PhoneAccessoriesCard.json";
+import "../../JsonFiles/PhoneAccessoriesCard.json";
 
 export const PhoneAccessoriesDetailsPage = () => {
+
   const [cartInitialNumber, setCartNumber] = useState(0);
   const { id, brand } = useParams(); // Get the parameters from the URL
   const [loading, setLoading] = useState(true);
@@ -27,13 +29,8 @@ const decrementCount = () => {
   setCartNumber(Math.max(cartInitialNumber - 1, 0)); // Ensures quantity doesn't go below 0
 };
 
-  // const handleAddToCart = () => {
-  //   addToCart({ ...selectedPhoneAccessories, quantity: cartInitialNumber });
-  // };  
-  
   const handleAddToCart = () => {
     const quantity = cartInitialNumber;
-    //addToCart({ ...selectedPhoneAccessories, quantity });
     addToCart(selectedPhoneAccessories, quantity);
     setIsAddedToCart(true); // Set message state to true
     setTimeout(() => setIsAddedToCart(false), 5000);
@@ -44,10 +41,9 @@ const decrementCount = () => {
       try {
         // Ensure laptopData is loaded before using it
         if (!PhoneAccessoriesData) return; // Handle case where data isn't loaded yet
-  
         // Consider type conversion if necessary (e.g., convert URL id to number)
         const idAsNumber = parseInt(id);
-        const filteredLaptop = laptopData.find(
+        const filteredPhoneAccessories = PhoneAccessoriesData.find(
           (PhoneAccessories) => PhoneAccessories.id === idAsNumber && PhoneAccessories.brand === brand
         );
   
@@ -109,7 +105,6 @@ const decrementCount = () => {
     Item added to your cart!
   </div>
 )}
-
   <button className='w-96 text-xl text-center border p-3 rounded-2xl text-white font-bold bg-orange-500 sm:rounded-lg'
    onClick={() => handleAddToCart(cartInitialNumber)} disabled={cartInitialNumber === 0} >Add to Cart</button>
 </div>
@@ -144,57 +139,3 @@ const decrementCount = () => {
         </> 
   );
 };
-
-  // useEffect to fetch or set selected laptop details based on id and brand
-  // useEffect(() => {
-  //   const fetchLaptopDetails = () => {
-  //     try {
-  //       // Filter the laptop data based on id and brand
-  //       const filteredLaptop = laptopData.find(laptop => laptop.id == id && laptop.brand == brand);
-  //       if (!filteredLaptop) {
-  //         throw new Error('Laptop not found');
-  //       }
-  //       setselectedPhoneAccessories(filteredLaptop);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error('Error fetching laptop details:', error);
-  //     }
-  //   };
-
-  //   fetchLaptopDetails();
-  // }, [id, brand, setselectedPhoneAccessories]);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (!selectedPhoneAccessories) {
-  //   return <div>No laptop details found</div>;
-  // }
-
-  ////
-  // useEffect(() => {
-  //   const fetchLaptopDetails = async () => {
-  //     try {
-  //       // Filter the laptop data based on id and brand
-  //       const filteredLaptop = laptopData.find(laptop => laptop.id == id && laptop.brand == brand);
-  //       if (!filteredLaptop) {
-  //         throw new Error('Laptop not found');
-  //       }
-  //       setselectedPhoneAccessories(filteredLaptop);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error('Error fetching laptop details:', error);
-  //     }
-  //   };
-
-  //   fetchLaptopDetails();
-  // }, [id, brand, setselectedPhoneAccessories]);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (!selectedPhoneAccessories) {
-  //   return <div>No laptop details found</div>;
-  // }
