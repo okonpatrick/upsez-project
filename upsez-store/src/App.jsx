@@ -25,103 +25,124 @@ import Contact from "./components/Contact";
 import { PhonesAndTabletsDetailsPage } from "./components/CardFile/PhonesAndTabletsCard/PhonesAndTabletsCardDetailsPage";
 import { PhoneAccessoriesDetailsProvider } from "./context/PhoneAccessoriesContext";
 import { PhoneAccessoriesDetailsPage } from "./components/CardFile/PhoneAccessories/PhoneAccessoriesDetailsPage";
-import FaceIo  from "./components/FaceIo";
+import { AudioAndMusicDetailsProvider } from "./context/AudioAndMusicContext";
+import { AudioAndMusicDetailsPage } from "./components/CardFile/AudioAndMusicCard/AudioAndMusicCardDetailsPage";
+import { EyeCareAndJewelryDetailsProvider } from "./context/EyeCareAndJewelryContext";
+import {EyeCareAndJewelryDetailsPage} from "./components/CardFile/EyeCareAndJewelry/EyeCareAndJewelryDetailsPage";
+import { ComputerAccessoriesDetailsProvider } from "./context/ComputerAccessoriesContext";
+import { ComputerAccessoriesDetailsPage } from "./components/CardFile/ComputerAccessories/ComputerAccessoriesDetailsPage"
+import OtherServicesContainer from "./components/CardFile/OtherServices/OtherServicesContainer";
 
 function App() {
   return (
-   <CartProvider>
-            <LaptopDetailsProvider>
-              <PhonesAndTabletsProvider>
-                <PhoneAccessoriesDetailsProvider>
-    <Router> 
-        {" "}
-        {/* Wrap your App component with LaptopDetailsProvider */}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <SearchForm />
-                <MenuCardContainer />
-                <Suspense
-                  fallback={<div className="font-bold text-lg">Loading...</div>}
-                >
-                  <TopDealsContainer />
-                </Suspense>
-                <AboutUs />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/waitfilter/laptops"
-            element={
-              <>
-                <Navbar />
-                <SearchForm />
-                <LaptopContainer />
-              </>
-            }
-          />
-
-          <Route
-            path="/waitfilter/phones&tablets"
-            element={
-              <Suspense
-                fallback={<div className="font-bold text-lg">Loading...</div>}
-              >
-                <PhonesTabletsWaitList />{" "}
-              </Suspense>
-            }
-          />
-          <Route path="/waitfilter/audio&music" element={<AudioAndMusic />} />
-          <Route
-            path="/waitfilter/eyecare&jewelry"
-            element={<EyeCareAndJewelry />}
-          />
-          <Route
-            path="/waitfilter/computer-accessories"
-            element={<ComputerAccessories />}
-          />
-          <Route
-            path="/waitfilter/phone-accessories"
-            element={<PhoneAccessories />}
-          />
-          <Route
-            path="/:brand/LaptopDetail/:id"
-            element={
-                     <LaptopDetailsPage />
-            }
-          />
-           <Route
-            path="/:brand/PhonesAndTabletsDetail/:id"
-            element={
-              <PhonesAndTabletsDetailsPage/>
-              
-            }
-          />
-
-<Route
-            path="/:brand/PhoneAccessoriesDetail/:id"
-            element={
-              <PhoneAccessoriesDetailsPage/>           
-            }
-          />
-          <Route path="/cart" element={<CheckOut />} />
-          <Route path="/contact" element={<Contact />} /> 
-          <Route path="/help" element={<HelpPage />} /> 
-
-          <Route path="*" element={<NotFound />} /> {/* Catch-all for unmatched routes */}
-          
-          <Route path="/faceauth" element={<FaceIo />} /> 
-
-        </Routes>
-    </Router>
-
-    </PhoneAccessoriesDetailsProvider>
-    </PhonesAndTabletsProvider>
-    </LaptopDetailsProvider>
+    <CartProvider>
+      <LaptopDetailsProvider>
+        <PhonesAndTabletsProvider>
+          <PhoneAccessoriesDetailsProvider>
+            <AudioAndMusicDetailsProvider>
+              <EyeCareAndJewelryDetailsProvider>
+                <ComputerAccessoriesDetailsProvider>
+            <Router>
+              {" "}
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <>
+                      <Navbar />
+                      <SearchForm />
+                      <MenuCardContainer />
+                      <Suspense
+                        fallback={
+                          <div className="font-bold text-lg">Loading...</div>
+                        }
+                      >
+                        <TopDealsContainer />
+                      </Suspense>
+                      <AboutUs />
+                      <Footer />
+                    </>
+                  }
+                />
+                <Route
+                  path="/waitfilter/laptops"
+                  element={
+                    <>
+                      <Navbar />
+                      <SearchForm />
+                      <LaptopContainer />
+                    </>
+                  }
+                />
+                <Route
+                  path="/waitfilter/phones&tablets"
+                  element={
+                    <Suspense
+                      fallback={
+                        <div className="font-bold text-lg">Loading...</div>
+                      }
+                    >
+                      <PhonesTabletsWaitList />{" "}
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/waitfilter/audio&music"
+                  element={<AudioAndMusic />}
+                />
+                <Route
+                  path="/waitfilter/eyecare&jewelry"
+                  element={<EyeCareAndJewelry />}
+                />
+                <Route
+                  path="/waitfilter/computer-accessories"
+                  element={<ComputerAccessories />}
+                />
+                <Route
+                  path="/waitfilter/phone-accessories"
+                  element={<PhoneAccessories />}
+                />
+                 <Route
+                  path="/waitfilter/other-services"
+                  element={<OtherServicesContainer />}
+                />
+                <Route
+                  path="/:brand/LaptopDetail/:id"
+                  element={<LaptopDetailsPage />}
+                />
+                <Route
+                  path="/:brand/PhonesAndTabletsDetail/:id"
+                  element={<PhonesAndTabletsDetailsPage />}
+                />
+                <Route
+                  path="/:brand/PhoneAccessoriesDetail/:id"
+                  element={<PhoneAccessoriesDetailsPage />}
+                />
+                 <Route
+                  path="/:brand/AudioAndMusicDetail/:id"
+                  element={<AudioAndMusicDetailsPage />}
+                />
+                <Route
+                  path="/:brand/EyeCareAndJewelryDetail/:id"
+                  element={<EyeCareAndJewelryDetailsPage />}
+                />
+                  <Route
+                  path="/:brand/ComputerAccessoriesDetail/:id"
+                  element={<ComputerAccessoriesDetailsPage/> }
+                />
+                <Route path="/cart" element={<CheckOut />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/help" element={<HelpPage />} />
+                <Route path="*" element={<NotFound />} />
+                {/* Catch-all for unmatched routes */}
+              </Routes>
+            </Router>
+            </ComputerAccessoriesDetailsProvider>
+            </EyeCareAndJewelryDetailsProvider>
+            </AudioAndMusicDetailsProvider>
+          </PhoneAccessoriesDetailsProvider>
+        </PhonesAndTabletsProvider>
+      </LaptopDetailsProvider>
     </CartProvider>
   );
 }
