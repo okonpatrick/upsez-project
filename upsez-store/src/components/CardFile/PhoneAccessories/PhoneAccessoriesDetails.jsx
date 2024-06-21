@@ -1,4 +1,4 @@
-// LaptopDetails.jsx
+// PhoneAccessoriesDetails.jsx
 import { useNavigate } from 'react-router-dom';
 import { usePhoneAccessoriesDetails } from '../../../context/PhoneAccessoriesContext';
 

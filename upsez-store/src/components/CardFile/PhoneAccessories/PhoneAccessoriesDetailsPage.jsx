@@ -1,7 +1,6 @@
 // LaptopDetailsPage.jsx
 import { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-//import { useLaptopDetails } from '../../../context/LaptopDetailsContext';
 import { usePhoneAccessoriesDetails } from '../../../context/PhoneAccessoriesContext';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -66,31 +65,38 @@ const decrementCount = () => {
 <>
 <Navbar/>
 <SearchForm/>
-<div className='lg:flex  m-auto lg:ml-40'>
+<div className='relative lg:flex  m-auto lg:ml-40'>
 <div className=' border-gray-300  flex lg:m-2 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-1  sm:m-20 sm:text-sm lg:ml-2 sm:ml-2 mb-0'  style={{ width: '400px', height: '380px'}}>
-<Carousel className="rounded-xl text-center lg:w-96" >
+
+<div className=''>
+  <Carousel className="rounded-xl text-center lg:w-96" >
     <img
       src={selectedPhoneAccessories.imageSrc} 
       alt={selectedPhoneAccessories.itemName}      
-    />
+    width={80}/>
     <img
-      src={selectedPhoneAccessories.imageSrc}
+      src={selectedPhoneAccessories.imageSrc2}
       alt={selectedPhoneAccessories.itemName}    
     />
     <img
-      src={selectedPhoneAccessories.imageSrc}
+      src={selectedPhoneAccessories.imageSrc3}
       alt={selectedPhoneAccessories.itemName}
     />
      <img
-      src={selectedPhoneAccessories.imageSrc}
+      src={selectedPhoneAccessories.imageSrc4}
       alt={selectedPhoneAccessories.itemName}  
     />
      <img
-      src={selectedPhoneAccessories.imageSrc}
+      src={selectedPhoneAccessories.imageSrc5}
       alt={selectedPhoneAccessories.itemName}  
     />
+     <img
+      src={selectedPhoneAccessories.imageSrc6} 
+      alt={selectedPhoneAccessories.itemName}      
+    />
     
-  </Carousel>
+  </Carousel> 
+  </div>
   <div className="text-center font-bold mb-2">
           <button className='text-xl pr-3'onClick={decrementCount}> - </button>
           <input type='number' className='justify-center border bg-gray-100 text-center'
@@ -108,7 +114,7 @@ const decrementCount = () => {
   <button className='w-96 text-xl text-center border p-3 rounded-2xl text-white font-bold bg-orange-500 sm:rounded-lg'
    onClick={() => handleAddToCart(cartInitialNumber)} disabled={cartInitialNumber === 0} >Add to Cart</button>
 </div>
-    <div className='mt-16 p-4 lg:pt-1 pt-6 border lg:ml-3 md:m-2 align-center  sm:text-sm'>  
+    <div className='mt-[600px] lg:mt-4 p-4 lg:pt-1 pt-6 border lg:ml-3 md:m-2 align-center  sm:text-sm'>  
        <div className=' lg:text-sm'>
        <h2 className=''>Category: {selectedPhoneAccessories.category}</h2>
       <p className=''>Brand: {selectedPhoneAccessories.brand}</p>
@@ -134,7 +140,7 @@ const decrementCount = () => {
       <p>Seller Phone No: {selectedPhoneAccessories['seller-phone-no']}</p>
       <p>Battery Life: {selectedPhoneAccessories['battery-life']}</p>   
 </div>
-        </div>
+        </div>      
         </div>
         </> 
   );

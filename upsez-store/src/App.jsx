@@ -76,14 +76,8 @@ function App() {
                 />
                 <Route
                   path="/waitfilter/phones&tablets"
-                  element={
-                    <Suspense
-                      fallback={
-                        <div className="font-bold text-lg">Loading...</div>
-                      }
-                    >
-                      <PhonesTabletsWaitList />{" "}
-                    </Suspense>
+                  element={    
+                      <PhonesTabletsWaitList />
                   }
                 />
                 <Route

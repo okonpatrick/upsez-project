@@ -4,8 +4,6 @@ import PhoneAccessoriesDetails from './PhoneAccessoriesDetails';
 
 export default function PhoneAccessoriesContainer() {
   return (
-    <div className="">
-           <PhoneAccessoriesDetails PhoneAccessories={PhoneAccessoriesData} />
-     </div>
+      <PhoneAccessoriesDetails PhoneAccessories={PhoneAccessoriesData} />
   );
 }

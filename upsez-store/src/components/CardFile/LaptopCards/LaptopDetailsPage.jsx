@@ -70,9 +70,9 @@ const decrementCount = () => {
 <>
 <Navbar/>
 <SearchForm/>
-<div className='lg:flex  m-auto lg:ml-40'>
+<div className='lg:flex lg:ml-40'>
 <div className=' border-gray-300  flex lg:m-2 grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-1  sm:m-20 sm:text-sm lg:ml-2 sm:ml-2 mb-0'  style={{ width: '400px', height: '380px'}}>
-<Carousel className="rounded-xl text-center lg:w-96" >
+<Carousel className="rounded-xl text-center lg:w-80" >
     <img
       src={selectedLaptop.imageSrc} 
       alt={selectedLaptop.itemName}      
@@ -84,6 +84,26 @@ const decrementCount = () => {
     <img
       src={selectedLaptop.imageSrc}
       alt={selectedLaptop.itemName}
+    />
+     <img
+      src={selectedLaptop.imageSrc}
+      alt={selectedLaptop.itemName}  
+    />
+     <img
+      src={selectedLaptop.imageSrc}
+      alt={selectedLaptop.itemName}  
+    />
+     <img
+      src={selectedLaptop.imageSrc}
+      alt={selectedLaptop.itemName}  
+    />
+     <img
+      src={selectedLaptop.imageSrc}
+      alt={selectedLaptop.itemName}  
+    />
+     <img
+      src={selectedLaptop.imageSrc}
+      alt={selectedLaptop.itemName}  
     />
      <img
       src={selectedLaptop.imageSrc}
@@ -113,7 +133,7 @@ const decrementCount = () => {
   <button className='w-96 text-xl text-center border p-3 rounded-2xl text-white font-bold bg-orange-500 sm:rounded-lg'
    onClick={() => handleAddToCart(cartInitialNumber)} disabled={cartInitialNumber === 0} >Add to Cart</button>
 </div>
-    <div className='mt-16 p-4 lg:pt-1 pt-6 border lg:ml-3 md:m-2 align-center  sm:text-sm'>  
+    <div className='mt-16 p-4 lg:pt-1 pt-40 lg:pt-6 border lg:ml-3 md:m-2 align-center  sm:text-sm'>  
        <div className=' lg:text-sm'>
        <h2 className=''>Category: {selectedLaptop.category}</h2>
       <p className=''>Brand: {selectedLaptop.brand}</p>
